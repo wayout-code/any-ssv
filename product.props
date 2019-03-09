@@ -1,0 +1,10 @@
+<Project>
+
+  <PropertyGroup>
+
+    <Product>Wayout.Ssv</Product> 
+    <ProductName>Ssv</ProductName> 
+ 
+  </PropertyGroup> 
+
+</Project>
