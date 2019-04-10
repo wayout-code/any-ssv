@@ -1,0 +1,5 @@
+﻿[[[TABLE_A]]]
+[[c1;c2;c3]]
+#excluded comment
+#a1;b1;c1
+a2;#b2;c2
