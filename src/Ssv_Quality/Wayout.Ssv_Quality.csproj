@@ -11,6 +11,7 @@
   <Import Project="..\..\product.props" />
   <Import Project="..\..\product_version.props" />
   <Import Project="..\..\participants.props" />
+
   <ItemGroup>
     <None Remove="Quality\data\multitable-[1]-valid.ssv" />
     <None Remove="Quality\data\singletable-data_only-[1]-valid.csv" />

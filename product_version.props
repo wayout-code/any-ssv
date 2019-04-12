@@ -2,9 +2,9 @@
 
   <PropertyGroup>
 
-    <ProductVersion>prerelease</ProductVersion>
-    <VersionPrefix>0.8</VersionPrefix>
-    <VersionSuffix>devel</VersionSuffix>
+    <ProductVersion>release</ProductVersion>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <VersionSuffix>alpha</VersionSuffix>
  
   </PropertyGroup> 
 

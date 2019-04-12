@@ -3,8 +3,9 @@
   <PropertyGroup>
 
     <Product>Wayout.Ssv</Product> 
-    <ProductName>Ssv</ProductName> 
- 
+    <ProductName>Ssv</ProductName>
+    <Description></Description>
+
   </PropertyGroup> 
 
 </Project>

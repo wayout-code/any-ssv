@@ -3,13 +3,12 @@
   <PropertyGroup>
 
     <RepositoryType>git</RepositoryType> 
-    <RepositoryUrl></RepositoryUrl> 
-    
-    <PackageLicenseUrl></PackageLicenseUrl> 
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl></PackageProjectUrl> 
-    <PackageIconUrl></PackageIconUrl> 
-    <PackageTags></PackageTags> 
-    <PackageReleaseNotes></PackageReleaseNotes> 
+    <PackageIconUrl></PackageIconUrl>
+    <PackageTags>ssv,format</PackageTags> 
+    <PackageReleaseNotes></PackageReleaseNotes>
 
   </PropertyGroup> 
 
