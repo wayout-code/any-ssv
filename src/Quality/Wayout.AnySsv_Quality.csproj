@@ -1,16 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <Import Project="..\..\organization.props" />
+  <Import Project="..\..\product.props" />
+  <Import Project="..\..\product_version.props" />
+  <Import Project="..\..\participants.props" />
+
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
     <IsPackable>false</IsPackable>
     <NeutralLanguage>en-US</NeutralLanguage>
     <IsTestProject>true</IsTestProject>
   </PropertyGroup>
 
-  <Import Project="..\..\organization.props" />
-  <Import Project="..\..\product.props" />
-  <Import Project="..\..\product_version.props" />
-  <Import Project="..\..\participants.props" />
 
   <ItemGroup>
     <None Remove="Quality\data\multitable-[1]-valid.ssv" />
@@ -88,13 +89,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
-    <PackageReference Include="MSTest.TestAdapter" Version="1.3.2" />
-    <PackageReference Include="MSTest.TestFramework" Version="1.3.2" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.1.1" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.1.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ssv\Wayout.Ssv.csproj" />
+    <ProjectReference Include="..\AnySsv\Wayout.AnySsv.csproj" />
   </ItemGroup>
 
 </Project>
