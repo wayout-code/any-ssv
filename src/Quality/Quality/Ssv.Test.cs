@@ -1,4 +1,4 @@
-﻿namespace Wayout.Ssv.Quality
+﻿namespace Wayout.AnySsv.Quality
 {
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
