@@ -1,4 +1,4 @@
-﻿namespace Wayout.Ssv
+﻿namespace Wayout.AnySsv
 {
     using System.Collections.Generic;
     using System.Collections.ObjectModel;

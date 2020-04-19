@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-  </PropertyGroup>
-
   <Import Project="..\..\organization.props" />
   <Import Project="..\..\product.props" />
   <Import Project="..\..\product_version.props" />
   <Import Project="..\..\participants.props" />
   <Import Project="..\nuget.props" />
-  
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
 </Project>

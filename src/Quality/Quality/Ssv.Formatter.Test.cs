@@ -1,4 +1,4 @@
-﻿namespace Wayout.Ssv.Quality
+﻿namespace Wayout.AnySsv.Quality
 {
     using System;
     using System.Linq;
