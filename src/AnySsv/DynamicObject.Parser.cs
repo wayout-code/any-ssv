@@ -5,25 +5,27 @@
     using System.Linq;
 
     /// <summary>
-    /// Dynamic object ssv parser.
+    /// Ssv format to dynamic object parser.
     /// </summary>
-    public class DynamicObjectSsvParser
+    public class DynamicObjectParser
     {
-        public DynamicObjectSsvParser()
+        public DynamicObjectParser()
         {
         }
 
+        private SsvParser _ssvParser = new SsvParser();
+
         public IEnumerable<ExpandoObject> ParseData(string format)
         {
-            var ssv = new SsvParser().Parse(format);
+            var ssv = _ssvParser.Parse(format);
             return Parse(ssv);
         }
 
         public IEnumerable<ExpandoObject> Parse(Ssv format)
         {
             var tableNames = format.GetTablesNames().ToArray();
-            
-            foreach (var line in format.GetTableData(tableNames[0]))
+
+            foreach (var line in format.GetTableData(0))
             {
                 IDictionary<string, object> obj = new ExpandoObject();
 
@@ -48,6 +50,7 @@
 
                     obj[columnNames[i]] = v;
                 }
+
                 yield return (ExpandoObject) obj;
             }
         }
