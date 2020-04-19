@@ -4,8 +4,7 @@
     using System.Collections.Generic;
 
     /// <summary>
-    /// Ssv parser
-    /// Parses string content to Ssv format.
+    /// String to Ssv object parser.
     /// </summary>
     public class SsvParser
     {
@@ -78,7 +77,7 @@
         {
             var names = line.Split(new[] { SsvNotation.ValueDelimiter }, StringSplitOptions.None);
             if (previousLineType == Ssv.LineType.TableName)
-                return new Ssv.Line(names) { LineType = Ssv.LineType.HeaderColumns };
+                return new Ssv.Line(names) { LineType = Ssv.LineType.ColumnsNames };
             else
                 return new Ssv.Line(names) { LineType = Ssv.LineType.Header };
         }

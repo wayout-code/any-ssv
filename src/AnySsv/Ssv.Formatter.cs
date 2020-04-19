@@ -24,7 +24,7 @@
                         sb.AppendLine(line.ToString(SsvNotation.ValueDelimiter));
                         continue;
 
-                    case Ssv.LineType.Comment:
+                    case Ssv.LineType.Excluded:
                         if ((line as Ssv.CommentLine)?.Content != null)
                             sb.Append(SsvNotation.LineExclusionMark)
                                 .AppendLine((line as Ssv.CommentLine).Content);
@@ -38,7 +38,7 @@
                             .AppendLine(SsvNotation.TableEndMak);
                         continue;
 
-                    case Ssv.LineType.HeaderColumns:
+                    case Ssv.LineType.ColumnsNames:
                     case Ssv.LineType.Header:
                         sb.Append(SsvNotation.HeaderStartMark)
                             .Append(line.ToString(SsvNotation.ValueDelimiter))

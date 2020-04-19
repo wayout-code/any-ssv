@@ -7,7 +7,7 @@
 
     [TestClass]
     [DeploymentItem(@"data\", @"data\")]
-    public class SsvParseFormatRoundTest
+    public class SsvParsingAndFormattingRoundTripTest // ssv parsing formatting round trip
     {
         [TestMethod]
         public void ParseAndFormatValidSingleTablesWithDataOnly()
