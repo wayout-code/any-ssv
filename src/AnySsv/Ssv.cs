@@ -76,7 +76,7 @@
 
         public Line InsertCustomHeaderLine(params string[] values)
         {
-            var line = new Line(values) { LineType = LineType.Header };
+            var line = new Line(values) { LineType = LineType.Custom };
             _lines.Add(line);
             return line;
         }
@@ -360,7 +360,8 @@
             TableName = 4,
             ColumnsNames = 8,
             DefaultValues = 16,
-            Header = TableName | ColumnsNames | DefaultValues,
+            Custom = 32,
+            Header = TableName | ColumnsNames | DefaultValues | Custom,
         }
 
         #endregion

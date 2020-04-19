@@ -39,7 +39,8 @@
                         continue;
 
                     case Ssv.LineType.ColumnsNames:
-                    case Ssv.LineType.Header:
+                    case Ssv.LineType.Custom:
+                    case Ssv.LineType.DefaultValues:
                         sb.Append(SsvNotation.HeaderStartMark)
                             .Append(line.ToString(SsvNotation.ValueDelimiter))
                             .AppendLine(SsvNotation.HeaderEndMark);
