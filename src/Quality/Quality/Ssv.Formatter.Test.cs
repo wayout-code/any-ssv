@@ -10,11 +10,7 @@
         [TestMethod]
         public void FormatSsvByDefaultNotation()
         {
-            var ssv = new Ssv();
-            ssv.InsertTableNameLine("T");
-            ssv.InsertHeaderColumnsLine("A", "B", "C");
-            ssv.InsertDataLine("A1", "B1", "C1");
-            ssv.InsertDataLine("A2", "B2", "C2");
+            var ssv = SsvFactory.Create3ColumnsNDataLines(2, "T");
 
             var formatter = new SsvFormatter();
             var format = formatter.Format(ssv);
@@ -23,27 +19,15 @@
             Assert.AreEqual(4, lines.Length);
             Assert.AreEqual("[[[T]]]", lines[0]);
             Assert.AreEqual("[[A;B;C]]", lines[1]);
-            Assert.AreEqual("A1;B1;C1", lines[2]);
+            Assert.AreEqual("a1;b1;c1", lines[2]);
         }
 
         [TestMethod]
         public void FormatSsvByCustomNotation()
         {
-            var ssv = new Ssv();
-            ssv.InsertTableNameLine("T");
-            ssv.InsertHeaderColumnsLine("A", "B", "C");
-            ssv.InsertDataLine("A1", "B1", "C1");
-            ssv.InsertDataLine("A2", "B2", "C2");
+            var ssv = SsvFactory.Create3ColumnsNDataLines(2, "T");
+            var notation = SsvFactory.CreateCustomNotation();
 
-            var notation = new Notation()
-            {
-                ValueDelimiter = " || ",
-                TableStartMark = "<<",
-                TableEndMak = ">>",
-                HeaderStartMark = "{{",
-                HeaderEndMark = "}}"
-            };
-            
             var formatter = new SsvFormatter() {SsvNotation = notation};
             var format = formatter.Format(ssv);
 
@@ -51,7 +35,7 @@
             Assert.AreEqual(4, lines.Length);
             Assert.AreEqual("<<T>>", lines[0]);
             Assert.AreEqual("{{A || B || C}}", lines[1]);
-            Assert.AreEqual("A1 || B1 || C1", lines[2]);
+            Assert.AreEqual("a1 || b1 || c1", lines[2]);
         }
     }
 }

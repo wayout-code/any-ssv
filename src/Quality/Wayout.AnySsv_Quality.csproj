@@ -17,20 +17,20 @@
     <None Remove="Quality\data\multitable-[1]-valid.ssv" />
     <None Remove="Quality\data\singletable-data_only-[1]-valid.csv" />
     <None Remove="Quality\data\singletable-data_only-[2]-valid.ssv" />
-    <None Remove="Quality\data\singletable-header-[1]-valid.ssv" />
-    <None Remove="Quality\data\singletable-header-[2]-valid.ssv" />
-    <None Remove="Quality\data\singletable-header-[3]-valid.ssv" />
-    <None Remove="Quality\data\singletable-header-[4]-valid.ssv" />
-    <None Remove="Quality\data\singletable-header-[5]-valid.ssv" />
-    <None Remove="Quality\data\singletable-header-[6]-valid.ssv" />
+    <None Remove="Quality\data\singletable-header-colnames-[1]-valid.ssv" />
+    <None Remove="Quality\data\singletable-header-colnames-[2]-valid.ssv" />
+    <None Remove="Quality\data\singletable-header-colnames-[3]-valid.ssv" />
+    <None Remove="Quality\data\singletable-header-colnames-[4]-valid.ssv" />
+    <None Remove="Quality\data\singletable-header-colnames-[5]-valid.ssv" />
+    <None Remove="Quality\data\singletable-header-colnames-[6]-valid.ssv" />
+    <None Remove="Quality\data\singletable-header-s[6zz]-valid.ssv" />
+    <None Remove="Quality\data\singletable-header-tname-[1]-valid.ssv" />
+    <None Remove="Quality\data\singletable-header-tname-[2]-valid.ssv" />
     <None Remove="Quality\data\singletable-header-[7]-valid.ssv" />
-    <None Remove="Quality\data\singletable-header-[8]-valid.ssv" />
     <None Remove="Quality\data\singletable-name,header,exclusions-[9]-valid.ssv" />
     <None Remove="Quality\data\singletable-name,header,wide_delim-[1]-valid.ssv" />
     <None Remove="Quality\data\singletable-name,header,wide_delim-[2]-valid.ssv" />
     <None Remove="Quality\data\singletable-name,header-[1]-valid.ssv" />
-    <None Remove="Quality\data\singletable-name-[1]-valid.ssv" />
-    <None Remove="Quality\data\singletable-name-[2]-valid.ssv" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Quality\data\singletable-data_only-[1]-valid.csv">
@@ -44,28 +44,28 @@
     <Content Include="Quality\data\singletable-data_only-[2]-valid.ssv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Quality\data\singletable-header-[1]-valid.ssv">
+    <Content Include="Quality\data\singletable-header-colnames-[1]-valid.ssv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Quality\data\singletable-header-[2]-valid.ssv">
+    <Content Include="Quality\data\singletable-header-colnames-[2]-valid.ssv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Quality\data\singletable-header-[3]-valid.ssv">
+    <Content Include="Quality\data\singletable-header-colnames-[3]-valid.ssv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Quality\data\singletable-header-[4]-valid.ssv">
+    <Content Include="Quality\data\singletable-header-colnames-[4]-valid.ssv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Quality\data\singletable-header-[5]-valid.ssv">
+    <Content Include="Quality\data\singletable-header-colnames-[5]-valid.ssv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Quality\data\singletable-header-[6]-valid.ssv">
+    <Content Include="Quality\data\singletable-header-s[6zz]-valid.ssv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Quality\data\singletable-header-[7]-valid.ssv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Quality\data\singletable-header-[8]-valid.ssv">
+    <Content Include="Quality\data\singletable-header-colnames-[6]-valid.ssv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Quality\data\singletable-name,header,exclusions-[9]-valid.ssv">
@@ -80,10 +80,10 @@
     <Content Include="Quality\data\singletable-name,header-[1]-valid.ssv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Quality\data\singletable-name-[1]-valid.ssv">
+    <Content Include="Quality\data\singletable-header-tname-[1]-valid.ssv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Quality\data\singletable-name-[2]-valid.ssv">
+    <Content Include="Quality\data\singletable-header-tname-[2]-valid.ssv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

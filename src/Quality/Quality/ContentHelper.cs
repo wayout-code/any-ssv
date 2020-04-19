@@ -21,7 +21,7 @@
                 var data = line.Split(separator);
                 dataLines.Add(data);
             }
-
+            
             return dataLines;
         }
 

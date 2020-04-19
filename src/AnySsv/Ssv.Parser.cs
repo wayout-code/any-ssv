@@ -4,8 +4,7 @@
     using System.Collections.Generic;
 
     /// <summary>
-    /// Ssv parser
-    /// Parses string content to Ssv format.
+    /// String to Ssv object parser.
     /// </summary>
     public class SsvParser
     {
@@ -31,7 +30,8 @@
         {
             var ssv = new Ssv();
 
-            var previousLine = new Ssv.Line();
+            //var previousLine = new Ssv.Line() { LineType = Ssv.LineType.Empty };
+            Ssv.Line previousLine = null;
             foreach (var line in contentLines)
             {
                 //empty
@@ -53,7 +53,7 @@
                 if (line.TrimStart().StartsWith(SsvNotation.HeaderStartMark))
                 {
                     var columnNames = line.Trim().Replace(SsvNotation.HeaderStartMark, string.Empty).Replace(SsvNotation.HeaderEndMark, string.Empty);
-                    var columnNamesRow = ParseHeaderRowLine(columnNames, previousLine.LineType);
+                    var columnNamesRow = ParseHeaderRowLine(columnNames, previousLine?.LineType);
                     previousLine = ssv.Insert(columnNamesRow);
                     continue;
                 }
@@ -74,11 +74,11 @@
             return ssv;
         }
 
-        private Ssv.Line ParseHeaderRowLine(string line, Ssv.LineType previousLineType)
+        private Ssv.Line ParseHeaderRowLine(string line, Ssv.LineType? previousLineType)
         {
             var names = line.Split(new[] { SsvNotation.ValueDelimiter }, StringSplitOptions.None);
-            if (previousLineType == Ssv.LineType.TableName)
-                return new Ssv.Line(names) { LineType = Ssv.LineType.HeaderColumns };
+            if (previousLineType == null || previousLineType != Ssv.LineType.Header)
+                return new Ssv.Line(names) { LineType = Ssv.LineType.ColumnsNames };
             else
                 return new Ssv.Line(names) { LineType = Ssv.LineType.Header };
         }

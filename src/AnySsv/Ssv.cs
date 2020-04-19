@@ -1,5 +1,6 @@
 ﻿namespace Wayout.AnySsv
 {
+    using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.IO;
@@ -21,14 +22,18 @@
         public static Ssv Load(string filePath, Notation notation = null)
         {
             var content = File.ReadAllText(filePath);
-            var parser = new SsvParser();
+            var parser = new SsvParser() { SsvNotation = notation };
+            
             return parser.Parse(content);
         }
 
         public static Ssv Load(string filePath, string valueDelimiter)
         {
             var content = File.ReadAllText(filePath);
-            var parser = new SsvParser();
+            var notation = SsvParser.Default.CreateNotation();
+            notation.ValueDelimiter = valueDelimiter;
+            var parser = new SsvParser() { SsvNotation = notation };
+            
             return parser.Parse(content);
         }
 
@@ -57,21 +62,21 @@
 
         public Line InsertHeaderColumnsLine(params string[] names)
         {
-            var line = new Line(names) { LineType = LineType.HeaderColumns };
+            var line = new Line(names) { LineType = LineType.ColumnsNames };
             _lines.Add(line);
             return line;
         }
 
         public Line InsertHeaderDefaultValuesLine(params string[] values)
         {
-            var line = new Line(values) { LineType = LineType.HeaderDefaultValues };
+            var line = new Line(values) { LineType = LineType.DefaultValues };
             _lines.Add(line);
             return line;
         }
 
         public Line InsertCustomHeaderLine(params string[] values)
         {
-            var line = new Line(values) { LineType = LineType.Header };
+            var line = new Line(values) { LineType = LineType.Custom };
             _lines.Add(line);
             return line;
         }
@@ -85,14 +90,14 @@
 
         public Line InsertCommentLine(string comment)
         {
-            var line = new CommentLine(comment) { LineType = LineType.Comment, IsExcluded = true };
+            var line = new CommentLine(comment) { LineType = LineType.Excluded, IsExcluded = true };
             _lines.Add(line);
             return line;
         }
 
         public Line InsertEmptyLine()
         {
-            var line = new CommentLine() { LineType = LineType.Comment, IsExcluded = true };
+            var line = new CommentLine() { LineType = LineType.Excluded, IsExcluded = true };
             _lines.Add(line);
             return line;
         }
@@ -125,6 +130,9 @@
             return 0;
         }
 
+        /// <summary>
+        /// Gets list of names of tables. If table has no explicit name then string.Empty is returned.
+        /// </summary>
         public IEnumerable<string> GetTablesNames()
         {
             return _lines.Where(l => l.LineType == LineType.TableName).Select(l => l.Name);
@@ -175,7 +183,7 @@
         public Line GetTableColumnNamesLine(int tableIndex = 0)
         {
             return tableIndex == 0
-                ? _lines.FirstOrDefault(l => l.LineType == LineType.HeaderColumns)
+                ? _lines.FirstOrDefault(l => l.LineType == LineType.ColumnsNames)
                 : null;
         }
 
@@ -341,14 +349,19 @@
             Vertical
         }
 
+        [Flags]
         public enum LineType
         {
-            Comment = 0,
-            Data,
-            TableName,
-            Header,
-            HeaderColumns,
-            HeaderDefaultValues,
+            Data = 0,
+            Empty = 1,
+            Excluded = 2,
+            NonFunctional = Empty | Excluded,
+            
+            TableName = 4,
+            ColumnsNames = 8,
+            DefaultValues = 16,
+            Custom = 32,
+            Header = TableName | ColumnsNames | DefaultValues | Custom,
         }
 
         #endregion
