@@ -7,7 +7,7 @@
 
     [TestClass]
     [DeploymentItem(@"data\", @"data\")]
-    public class SsvParseFormatRoundTest
+    public class SsvParsingAndFormattingRoundTripTest // ssv parsing formatting round trip
     {
         [TestMethod]
         public void ParseAndFormatValidSingleTablesWithDataOnly()
@@ -29,9 +29,9 @@
         }
 
         [TestMethod]
-        public void ParseAndFormatValidSingleTablesWithTableName()
+        public void ParseAndFormatValidSingleTablesWithTableNameHeadeOnly()
         {
-            var files = Directory.GetFiles(ContentHelper.RootDataFolder, "singletable-*name*[*]-valid.ssv");
+            var files = Directory.GetFiles(ContentHelper.RootDataFolder, "singletable-header-tname-[*]-valid.ssv");
             foreach (var file in files)
             {
                 Console.WriteLine(file);
@@ -48,9 +48,9 @@
         }
 
         [TestMethod]
-        public void ParseAndFormatValidSingleTablesWithHeader()
+        public void ParseAndFormatValidSingleTablesWithColumnNamesHeaderOnly()
         {
-            var files = Directory.GetFiles(ContentHelper.RootDataFolder, "singletable-*header*[*]-valid.ssv");
+            var files = Directory.GetFiles(ContentHelper.RootDataFolder, "singletable-header-colnames-[*]-valid.ssv");
             foreach (var file in files)
             {
                 Console.WriteLine(file);
@@ -77,7 +77,8 @@
                 var parser = new SsvParser();
                 var ssv = parser.Parse(originalContent);
 
-                var format = new SsvFormatter() { SsvNotation = parser.SsvNotation }.Format(ssv);
+                var format = new SsvFormatter() { SsvNotation = parser.SsvNotation }
+                .Format(ssv);
 
                 Assert.AreEqual(originalContent, format, false, CultureInfo.InvariantCulture, file);
 
