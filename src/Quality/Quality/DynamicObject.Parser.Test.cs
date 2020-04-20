@@ -9,25 +9,31 @@
     public class DynamicObjectParserTest
     {
         [TestMethod]
-        public void Parse()
+        public void ParseSigleLineAsObject()
         {
             var parser = new DynamicObjectParser();
-            var ssvParser = new SsvParser();
+            var ssv = SsvFactory.Create3ColumnsNDataLines(1);
+            
+            dynamic dynObj = parser.Parse(ssv).First();
 
-            var files = Directory.GetFiles(ContentHelper.RootDataFolder, "singletable-*header*[*]-valid.ssv");
-            foreach (var filez in files)
-            {
-                var file = files.ElementAt(4);
+            Assert.AreEqual("a1", dynObj.A);
+            Assert.AreEqual("b1", dynObj.B);
+            Assert.AreEqual("c1", dynObj.C);
+        }
 
-                Console.Write(file);
-                var originalContent = File.ReadAllLines(file);
-                var ssv = ssvParser.Parse(originalContent);
-                var eobjects = parser.Parse(ssv).ToArray();
+        [TestMethod]
+        public void Parse3LineAsObjects()
+        {
+            var parser = new DynamicObjectParser();
+            var ssv = SsvFactory.Create3ColumnsNDataLines(3, "T");
 
+            var dynObjects = parser.Parse(ssv).ToArray();
 
-                //SsvAssertHelper.AssertSsvEqualsContentLines(ssv, originalContent);
-                //Console.WriteLine(" - ok");
-            }
+            Assert.AreEqual(3, dynObjects.Count());
+            dynamic dynObj3 = dynObjects[2];
+            Assert.AreEqual("a3", dynObj3.A);
+            Assert.AreEqual("b3", dynObj3.B);
+            Assert.AreEqual("c3", dynObj3.C);
         }
     }
 }
