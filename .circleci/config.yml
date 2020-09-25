@@ -8,12 +8,12 @@ jobs:
       - run:
           name: restore packages
           command:
-            dotnet restore "src/ssv.sln"
+            dotnet restore "src/any ssv.sln"
       - run:
           name: build app
           command:
-            dotnet build "src/ssv.sln"
+            dotnet build "src/any ssv.sln"
       - run:
           name: test app
           command:
-            dotnet test "src/ssv.sln"
+            dotnet test "src/any ssv.sln"
